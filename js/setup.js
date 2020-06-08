@@ -11,8 +11,8 @@ var firstnames = ['Иван', 'Хуан Себастьян', 'Мария', 'Кр
 
 var lastnames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var names = [];
-var CoatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var EyesColor = [black, red, blue, yellow, green];
+var allCoatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var allEyesColor = [black, red, blue, yellow, green];
 var coatColors = [];
 var eyesColors = [];
 var similarListElement = document.querySelector('.setup-similar-list');
@@ -22,11 +22,11 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
 for (var i = 0; i < 4; i++) {
   names.append(firstnames[Math.floor(Math.random() * firstnames.length)] + ' ' + lastnames[Math.floor(Math.random() * lastnames.length)]);
 }
-var firstFunction = function (firstList, secondList) {
+var coatEyesColors = function (firstList, secondList) {
   secondList.append(firstList[Math.floor(Math.random() * firstList.length)]);
 };
-firstFunction(CoatColor, coatColors);
-firstFunction(EyesColor, eyesColors);
+coatEyesColors(allCoatColor, coatColors);
+coatEyesColors(allEyesColor, eyesColors);
 for (i = 0; i < 4; i++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
   wizardElement.querySelector('.setup-similar-label').textContent = names[i];
