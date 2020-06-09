@@ -32,7 +32,7 @@ for (i = 0; i < 4; i++) {
   wizardElement.querySelector('.setup-similar-label').textContent = names[i];
   similarListElement.appendChild(wizardElement);
 }
-var wizards = {
+var wizards = [
   {
     name: names[0],
     coatColor: coatColors[0],
@@ -47,26 +47,26 @@ var wizards = {
     name: names[2],
     coatColor: coatColors[2],
     eyesColor: eyesColors[2]
-  }
+  },
   {
     name: names[3],
     coatColor: coatColors[3],
     eyesColor: eyesColors[3]
   }
-};
-var renderWizard = function(wizard) {
-  var wizardElement = similarWizardTemplate.cloneNode(true);
+];
+var renderWizard = function (wizard) {
+  wizardElement = similarWizardTemplate.cloneNode(true);
 
   wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
   return wizardElement;
-}
+};
 
 var fragment = document.createDocumentFragment();
-for (var i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
+for (var j = 0; j < wizards.length; j++) {
+  fragment.appendChild(renderWizard(wizards[j]));
 }
 similarListElement.appendChild(fragment);
 
